@@ -70,6 +70,9 @@ $(document or ".class or #id").get_box({
 					case "TEXTAREA":
 						THIS.val(VAL);
 					break;
+					default:
+						THIS.html(VAL);
+					break;
 				}
 			});
 		}
