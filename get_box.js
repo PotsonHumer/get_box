@@ -106,7 +106,8 @@ $(document or ".class or #id").get_box({
 		
 		//-- ACT
 		if(GET.CLICK){
-			this.click(function(){
+			this.click(function(E){
+				E.preventDefault();
 				GET.REL = $(this).attr("rel");
 				
 				get_ajax();
