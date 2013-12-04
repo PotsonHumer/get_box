@@ -42,7 +42,12 @@ $(document or ".class or #id").get_box({
 		
 		//-- INPUT
 		function get_input(JSON_STR){
-			var OBJ = JSON.parse(JSON_STR);
+			try{		
+				var OBJ = JSON.parse(JSON_STR);
+			}
+			catch(e){
+				return false;
+			}
 			
 			$.each(OBJ,function(KEY,VAL){
 				var THIS = $("*[name="+ KEY +"]");
