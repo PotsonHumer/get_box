@@ -34,7 +34,6 @@ $(document or ".class or #id").get_box({
 				key : GET.REL,
 				contentType : "application/x-www-form-urlencoded; charset=utf-8",
 			}, function(DATA,STATUS){
-				GET.AFTER();
 				CALLBACK(DATA);
 				get_input(DATA);
 			});
@@ -46,6 +45,7 @@ $(document or ".class or #id").get_box({
 				var OBJ = JSON.parse(JSON_STR);
 			}
 			catch(e){
+				GET.AFTER();
 				return false;
 			}
 			
@@ -80,6 +80,8 @@ $(document or ".class or #id").get_box({
 					break;
 				}
 			});
+			
+			GET.AFTER();
 		}
 		
 		//-- SELECT
