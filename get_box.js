@@ -113,12 +113,28 @@ $(document or ".class or #id").get_box({
 		
 		//-- ACT
 		if(GET.CLICK){
-			this.click(function(E){
-				E.preventDefault();
-				GET.REL = $(this).attr("rel");
-				
-				get_ajax();
-			});
+			var GET_ID = this.attr("id");
+			var GET_CLASS = this.attr("class");
+			var GET_CALL = GET.CALL;
+			
+			if(typeof(GET_ID) != "undefined"){
+				var GET_CLICK = GET_ID;
+			}else{
+				if(typeof(GET_CLASS) != "undefined"){
+					var GET_CLICK = GET_CLASS;
+				}else{
+					var GET_CLICK = GET_CALL;
+				}
+			}
+			
+			if(typeof(GET_CLICK) != "undefined" && GET_CLICK != ""){
+				$(document).on("click",GET_CLICK,function(E){
+					E.preventDefault();
+					GET.REL = $(this).attr("rel");
+					
+					get_ajax();
+				});
+			}
 		}else{
 			get_ajax();
 		}
