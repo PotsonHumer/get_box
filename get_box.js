@@ -118,10 +118,10 @@ $(document or ".class or #id").get_box({
 			var GET_CALL = GET.CALL;
 			
 			if(typeof(GET_ID) != "undefined"){
-				var GET_CLICK = GET_ID;
+				var GET_CLICK = "#"+ GET_ID;
 			}else{
 				if(typeof(GET_CLASS) != "undefined"){
-					var GET_CLICK = GET_CLASS;
+					var GET_CLICK = "."+ GET_CLASS;
 				}else{
 					var GET_CLICK = GET_CALL;
 				}
@@ -130,6 +130,7 @@ $(document or ".class or #id").get_box({
 			if(typeof(GET_CLICK) != "undefined" && GET_CLICK != ""){
 				$(document).on("click",GET_CLICK,function(E){
 					E.preventDefault();
+					
 					GET.REL = $(this).attr("rel");
 					
 					get_ajax();
